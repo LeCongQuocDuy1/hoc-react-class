@@ -1,46 +1,29 @@
 import React from 'react';
+import { ChildComponent } from './ChildComponent';
+
 
 class MyComponent extends React.Component {
+
     state = {
-        fisrtname: "",
-        lastname: "",
-    }
-
-    handleChangeFirstName = (e) => {
-        this.setState({ fisrtname: e.target.value })
-    }
-
-    handleChangeLastName = (e) => {
-        this.setState({ lastname: e.target.value })
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Data :", this.state);
+        name: "",
+        listJobs: [
+            { id: 1, title: "Front End Developer", salary: 1000, },
+            { id: 2, title: "Back End Developer", salary: 2000, },
+            { id: 3, title: "Fullstack Developer", salary: 5000, },
+        ],
     }
 
     render() {
         return (
             <>
-                <h2>HTML Forms</h2>
-
-                <form >
-                    <label>First name:</label><br />
-                    <input
-                        type="text"
-                        value={this.state.fisrtname}
-                        onChange={(e) => this.handleChangeFirstName(e)}
-                    />
-                    <br />
-                    <label>Last name:</label><br />
-                    <input
-                        type="text"
-                        value={this.state.lastname}
-                        onChange={(e) => this.handleChangeLastName(e)}
-                    /><br />
-                    <br />
-                    <input type="button" value="Submit" onClick={(e) => this.handleSubmit(e)} />
-                </form>
+                <input type="text" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
+                <h1>{this.props.title}</h1>
+                <ChildComponent
+                    title="child component oi"
+                    name={this.state.name}
+                    age="20"
+                    listJobs={this.state.listJobs}
+                />
             </>
         )
     }
