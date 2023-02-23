@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/global.scss';
 import App from './views/App';
+import { MyComponent, } from './views/example/MyComponent';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <MyComponent name="Quoc Duy" />
   </React.StrictMode>,
   document.getElementById('root')
 );
