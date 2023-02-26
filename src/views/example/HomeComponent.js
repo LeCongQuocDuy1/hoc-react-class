@@ -1,7 +1,7 @@
 import React from 'react';
-import {
-    withRouter
-} from "react-router";
+// import {
+//     withRouter
+// } from "react-router";
 import { WithColor } from '../HOC/WithColor';
 
 class HomeComponent extends React.Component {
