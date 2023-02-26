@@ -1,28 +1,31 @@
 import './App.scss';
-// import { MyComponent } from './example/MyComponent';
-import { ListTodo } from './todo/ListTodo';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Navigation from './nav/Navigation';
+import HomeComponent from './example/HomeComponent';
+import TodoComponent from './example/TodoComponent';
+
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hoc React Class voi Quoc Duy</h1>
-      <ListTodo />
-      {/* <MyComponent /> */}
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </div>
+    <Router>
+      <div className="App">
+        <Navigation />
+
+        <Switch>
+          <Route path="/" exact>
+            <HomeComponent />
+          </Route>
+          <Route path="/todo">
+            <TodoComponent />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
