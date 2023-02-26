@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import './ListUser.scss';
 import { WithColor } from '../HOC/WithColor';
+import {
+    NavLink
+} from "react-router-dom";
 
 class ListUser extends React.Component {
     state = {
@@ -18,8 +21,6 @@ class ListUser extends React.Component {
         this.setState({
             listUsers: res && res.data ? res.data.data : [],
         });
-
-        console.log(this.state.listUsers);
     }
 
     render() {
@@ -45,7 +46,10 @@ class ListUser extends React.Component {
                                         <tr key={user.id}>
                                             <td>{user.id}</td>
                                             <td><img src={user.avatar} alt="" className='avatar' /></td>
-                                            <td><h4>{`${user.first_name} ${user.last_name}`}</h4></td>
+                                            <td>
+                                                <NavLink to={`/users/${user.id}`} activeClassName="active" exact={true}>{`${user.first_name} ${user.last_name}`}</NavLink>
+                                                {/* <a href={`/users/:${user.id}`}>{`${user.first_name} ${user.last_name}`}</a> */}
+                                            </td>
                                             <td><p>{user.email}</p></td>
                                         </tr>
                                     )

@@ -3,7 +3,7 @@ import Navigation from './nav/Navigation';
 import HomeComponent from './example/HomeComponent';
 import TodoComponent from './example/TodoComponent';
 import ListUser from './users/ListUser';
-
+import DetailUser from './users/DetailUser';
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -24,8 +24,11 @@ function App() {
           <Route path="/todo">
             <TodoComponent />
           </Route>
-          <Route path="/users">
+          <Route path="/users" exact>
             <ListUser />
+          </Route>
+          <Route path="/users/:id">
+            <DetailUser />
           </Route>
         </Switch>
       </div>
